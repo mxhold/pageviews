@@ -61,7 +61,7 @@ CREATE TABLE pageviews (
 SQL
 end
 
-get "/pageviews/:name.png" do
+get "/:name.png" do
   name = params[:name]
   result = db.execute "SELECT count FROM pageviews WHERE name = ?", name
   existing_count = result.empty? ? 0 : result[0][0]
